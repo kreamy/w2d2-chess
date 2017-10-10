@@ -32,15 +32,29 @@ end
 
 class King < Piece
 
+  include Step
+
+  def move_dirs
+    move_king
+  end
+
 end
 
 class Bishop < Piece
   include Slide
 
+  def move_dirs
+    move_diag
+  end
+
 end
 
 class Knight < Piece
+  include Step
 
+  def move_dirs
+    move_knight
+  end
 end
 
 class Rook < Piece

@@ -8,19 +8,22 @@ class Board
     @grid = Array.new(8) {Array.new(8)}
   end
 
-  def populate
-    (0..7).each do |row|
-      (0..7).each do |col|
-        if row == 0 || row == 1
-          self[[row, col]] = Piece.new("White")
-        elsif row == 6 || row == 7
-          @grid[row][col] = Piece.new("Black")
-        else
-          @grid[row][col] = NullPiece.new
-        end
-      end
-    end
-  end
+  # def populate
+  #   (0..7).each do |row|
+  #     (0..7).each do |col|
+  #       if row == 0 || row == 1
+  #         self[[row, col]] = Piece.new("White")
+  #       elsif row == 6 || row == 7
+  #         @grid[row][col] = Piece.new("Black")
+  #       else
+  #         @grid[row][col] = NullPiece.new
+  #       end
+  #     end
+  #   end
+
+def populate
+  backrow = [Rook, Knight, Bishop, King, Queen, Bishop, Knight, Rook]
+end
 
   def move_piece(start_pos, end_pos)
     if self[start_pos].is_a?(NullPiece)
@@ -48,8 +51,6 @@ class Board
   end
 
   def in_bounds?(pos)
-    # (pos[0] < 7 && pos[0] > 0) && pos[1] < 7 && pos[1] > 0
-
     pos[0].between?(0,7) && pos[1].between?(0,7)
   end
 

@@ -22,11 +22,17 @@ def move_diag
   DIAG
 end
 
-def move
-  
+def moves
+  moves = []
+
+  move_dirs.each do |px, py|
+    moves.concat(self.available_positions(px, py))
+  end
+
+  moves
 end
 
-def available_positions
+def available_positions(px, py)
   moves = []
 
   loop do
@@ -34,8 +40,17 @@ def available_positions
     pos_x, pos_y = pos
     pos_x, pos_y = pos_x + px, pos_y + py
 
-    moves << pos = [pos_x, pos_y] if board.valid_move?(pos)
+    break unless board.valid_move?([pos_x, pos_y])
 
+
+
+    if board[pos].color != self.color
+      moves << [pos_x, pos_y]
+      break
+    else
+      moves << [pos_x, pos_y]
+    end
   end
-  end
+
+  moves
 end
