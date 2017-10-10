@@ -44,11 +44,13 @@ class Board
   end
 
   def valid_move?(pos)
-    in_bounds? && #not own piece#
+    in_bounds? && (self[pos].is_a?(NullPiece) || self[pos].piece.color != pos.piece.color)
   end
 
   def in_bounds?(pos)
-    pos[0] < 7 && pos[0] > 0 && pos[1] < 7 && pos[1] > 0
+    # (pos[0] < 7 && pos[0] > 0) && pos[1] < 7 && pos[1] > 0
+
+    pos[0].between?(0,7) && pos[1].between?(0,7)
   end
 
 end

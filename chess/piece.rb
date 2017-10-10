@@ -17,7 +17,7 @@ class Piece
 
   def initialize(color, pos, board) #pos, board)
     @color = color
-    @pos = pos
+    @pos = " x "
     @board = board
   end
 end
@@ -25,7 +25,9 @@ end
 class Queen < Piece
   include Slide
 
-  move_cross + move_diag
+  def move_dirs
+    move_cross + move_diag
+  end
 end
 
 class King < Piece
