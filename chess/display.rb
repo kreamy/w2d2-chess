@@ -1,7 +1,7 @@
 require 'colorize'
 require_relative 'cursor.rb'
 require_relative 'board.rb'
-require_relative 'piece.rb'
+require_relative 'pieces/pieces.rb'
 
 class Display
 
@@ -18,11 +18,11 @@ class Display
       row.each_with_index do |col, idx2|
         if idx1.odd?
           if [idx1, idx2] == cursor.cursor_pos
-            arr << (" #{symbol} ").colorize(:background => :red)
+            arr << (" #{col.symbol} ").colorize(:background => :red)
           elsif idx2.odd?
-            arr << (" #{symbol} ").colorize(:background => :blue)
+            arr << (" #{col.symbol} ").colorize(:background => :blue)
           elsif idx2.even?
-            arr << (" #{symbol} ").colorize(:background => :white)
+            arr << (" #{col.symbol} ").colorize(:background => :white)
           end
         else
           if [idx1, idx2] == cursor.cursor_pos
@@ -30,12 +30,12 @@ class Display
             #   arr << (" #{col.value} ").colorize(:background => :green)
             # else
             #   arr << (" #{col.value} ").colorize(:background => :red)
-            arr << (" #{col.value} ").colorize(:background => :red)
+            arr << (" #{col.symbol} ").colorize(:background => :red)
             # end
           elsif idx2.odd?
-            arr << (" #{col.value} ").colorize(:background => :white)
+            arr << (" #{col.symbol} ").colorize(:background => :white)
           elsif idx2.even?
-            arr << (" #{col.value} ").colorize(:background => :blue)
+            arr << (" #{col.symbol} ").colorize(:background => :blue)
           end
         end
       end
