@@ -21,9 +21,20 @@ class Board
   #     end
   #   end
 
-def populate
-  backrow = [Rook, Knight, Bishop, King, Queen, Bishop, Knight, Rook]
-end
+  def populate(color)
+    backrow = [Rook, Knight, Bishop, King, Queen, Bishop, Knight, Rook]
+
+
+    i = (color == :white) ? 0 : 7
+    backrow.each_with_index do |piece, z|
+      piece.new(:black, self[i,z], self )
+    end
+  end
+
+  def fill_board
+    populate(:white)
+    populate(:black)
+  end
 
   def move_piece(start_pos, end_pos)
     if self[start_pos].is_a?(NullPiece)

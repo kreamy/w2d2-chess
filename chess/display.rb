@@ -17,11 +17,11 @@ class Display
       row.each_with_index do |col, idx2|
         if idx1.odd?
           if [idx1, idx2] == cursor.cursor_pos
-            arr << (" #{col.value} ").colorize(:background => :red)
+            arr << (" #{symbol} ").colorize(:background => :red)
           elsif idx2.odd?
-            arr << (" #{col.value} ").colorize(:background => :blue)
+            arr << (" #{symbol} ").colorize(:background => :blue)
           elsif idx2.even?
-            arr << (" #{col.value} ").colorize(:background => :white)
+            arr << (" #{symbol} ").colorize(:background => :white)
           end
         else
           if [idx1, idx2] == cursor.cursor_pos
