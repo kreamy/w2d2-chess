@@ -1,11 +1,11 @@
-require_relative "pieces.rb"
-
-class Pawn < Piece
-
-  def symbol
-    "\u2659"
-  end
-
-  include Skip
-
-end
+# require_relative "../piece.rb"
+#
+# class Pawn < Piece
+#   include Skip
+#
+#   def symbol
+#     "\u2659"
+#   end
+#
+#
+# end

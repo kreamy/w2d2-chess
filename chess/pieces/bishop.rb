@@ -1,16 +1,15 @@
-require_relative "piece.rb"
+require_relative "../piece.rb"
+require_relative '../modules/slide.rb'
 
-class Piece
+class Bishop < Piece
+  include Slide
 
-  attr_reader :color, :value
-
-  def initialize(color, pos, board) #pos, board)
-    @color = color
-    @pos = pos
-    @board = board
+  def symbol
+    "\u2657"
   end
 
-  def to_s
-    "#{piece}"
+  def move_dirs
+    move_diag
   end
+
 end

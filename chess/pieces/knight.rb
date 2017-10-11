@@ -1,4 +1,5 @@
-require_relative "piece.rb"
+require_relative "../piece.rb"
+require_relative '../modules/step.rb'
 
 class Knight < Piece
   include Step

@@ -1,4 +1,6 @@
-require_relative "piece.rb"
+# require_relative "pieces.rb"
+require_relative '../modules/slide.rb'
+require_relative '../piece'
 
 class Queen < Piece
   include Slide

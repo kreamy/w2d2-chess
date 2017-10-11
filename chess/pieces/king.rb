@@ -1,7 +1,7 @@
-require_relative "piece.rb"
+require_relative "../piece.rb"
+require_relative '../modules/step.rb'
 
 class King < Piece
-
   include Step
 
   def symbol

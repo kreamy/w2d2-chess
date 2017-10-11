@@ -2,6 +2,7 @@ require 'colorize'
 require_relative 'cursor.rb'
 require_relative 'board.rb'
 require_relative 'pieces/pieces.rb'
+require 'byebug'
 
 class Display
 
@@ -12,7 +13,9 @@ class Display
     @cursor = Cursor.new([0,0], @board)
   end
 
+
   def render
+    byebug
     @board.grid.each_with_index do |row, idx1|
       arr = []
       row.each_with_index do |col, idx2|
@@ -43,21 +46,22 @@ class Display
     end
   end
 
-  def play
-    while true
-      system("clear")
-      render
-      cursor.get_input
-    end
-  end
+  # def play
+  #   while true
+  #     system("clear")
+  #     render
+  #     cursor.get_input
+  #   end
+  # end
 
 end
 
 
 board = Board.new
-board.populate
+# board.populate
 display = Display.new(board)
-display.play
+p display
+# display.play
 
 # def render
 #   @board.grid.each_with_index do |row, idx1|

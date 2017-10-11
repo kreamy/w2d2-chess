@@ -1,14 +1,14 @@
-include Slide
-include Step
-include Skip
+# include Slide
+# include Step
+# include Skip
 
-def move_cross
-  CROSS
-end
-
-def move_diag
-  DIAG
-end
+# def move_cross
+#   CROSS
+# end
+#
+# def move_diag
+#   DIAG
+# end
 
 
 class Piece
